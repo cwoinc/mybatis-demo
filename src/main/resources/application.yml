@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/socks?useSSL=false
+    url: jdbc:mysql://localhost:3306/look?useSSL=false
     username: root
-    password: test
+    password: root
     driver-class-name: com.mysql.jdbc.Driver
 
 mybatis:

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import java.util.Arrays;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -23,11 +23,7 @@ public class MybatisDemoApplicationTests {
 
     @Test
     public void test_db() {
-        System.out.println(userMapper.list().size());
-        //开始进行测试
-        assertThat(userMapper.list().size()).isGreaterThan(1);
-        assertThat(userMapper.getOne("1")).isNotEqualTo(null);
-        assertThat(userMapper.getOne("xxx")).isEqualTo(null);
+        userMapper.selectRolesByRoleId(Arrays.asList());
     }
 
 }
