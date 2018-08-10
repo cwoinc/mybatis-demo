@@ -12,11 +12,9 @@ import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 import java.util.Properties;
 
 /**
- * 数据库操作性能拦截器,记录耗时
  * <p>
  * #@Intercepts定义Signature数组,因此可以拦截多个,但是只能拦截类型为：
  *
@@ -39,7 +37,9 @@ public class TestInterceptor implements Interceptor {
      */
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
-        System.out.println(Arrays.toString(invocation.getArgs()));
+        //System.out.println();
+        //Arrays.stream(invocation.getArgs()).forEach(System.out::println);
+        //System.out.println();
         return invocation.proceed();
     }
     
@@ -48,12 +48,15 @@ public class TestInterceptor implements Interceptor {
      */
     @Override
     public Object plugin(Object target) {
+        //System.out.println(target);
         return Plugin.wrap(target, this);
     }
     
     @Override
     public void setProperties(Properties properties) {
-    
+        String prop1 = properties.getProperty("prop1");
+        String prop2 = properties.getProperty("prop2");
+        System.out.println(prop1 + "------" + prop2);
     }
     
 }

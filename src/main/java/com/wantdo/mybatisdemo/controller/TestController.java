@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
 
 /**
  * @author king
@@ -22,10 +21,10 @@ public class TestController {
         return "fdgh";
     }
     
-    @RequestMapping("/user")
-    public Object user() {
-        return userMapper.selectRolesByRoleId(Arrays.asList(1,2));
-        //return userMapper.selectUsersByRoleIdList(Arrays.asList(1, 2));
-    }
+    //@RequestMapping("/user")
+    //public Object user() {
+    //    return userMapper.selectRolesByRoleId(Arrays.asList(1,2));
+    //    //return userMapper.selectUsersByRoleIdList(Arrays.asList(1, 2));
+    //}
     
 }

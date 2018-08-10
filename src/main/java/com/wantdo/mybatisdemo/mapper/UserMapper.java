@@ -4,6 +4,7 @@ import com.wantdo.mybatisdemo.convert.SimpleSelectInLangDriver;
 import com.wantdo.mybatisdemo.entity.User;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Lang;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -25,9 +26,13 @@ public interface UserMapper {
     @Delete("delete from t_user where user_id like #{userId}")
     int delete(String userId);
     
-    @Select("SELECT * FROM t_user WHERE id IN (#{list})")
+    @Select("SELECT * FROM t_user WHERE id IN (#{aa})")
     @Lang(SimpleSelectInLangDriver.class)
-    List<User> selectRolesByRoleId(List<Integer> roleIdList);
+    List<User> selectTwoList(@Param("aa") List<Integer> roleIdList, @Param("bb") List<String> strList);
+    
+    @Select("SELECT * FROM t_user WHERE id IN (#{cc})")
+    @Lang(SimpleSelectInLangDriver.class)
+    List<User> selectOneList(@Param("cc") List<Integer> roleIdList);
     
     //@Select("SELECT * FROM t_user WHERE id IN <foreach item='item' index='index' collection='list' open='(' separator=',' close=')'>#{item}</foreach>")
     //@Select("SELECT * FROM t_user WHERE id IN <foreach collection=\"list\" item=\"_item\" open=\"(\" separator=\",\" close=\")\" >#{_item}</foreach>")

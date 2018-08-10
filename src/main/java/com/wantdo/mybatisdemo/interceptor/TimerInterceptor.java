@@ -50,7 +50,7 @@ public class TimerInterceptor implements Interceptor {
             // 执行方法
             result = invocation.proceed();
             long end = System.currentTimeMillis();
-            System.out.println("[TimerInterceptor] execute [" + method.getName() + "] cost [" + (end - start) + "] ms");
+            //System.out.println("[TimerInterceptor] execute [" + method.getName() + "] cost [" + (end - start) + "] ms");
         }
         return result;
     }
